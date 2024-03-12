@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(56, 55, 55);
+}
+
+.maze {
+    display: grid;
+    grid-template-columns: repeat(var(--GRID_WITH), max-content);
+}
+
+.node {
+    width: 25px;
+    background-color: rgb(115, 115, 223);
+    aspect-ratio: 1/1;
+}
+
+.west-wall {
+    border-left: 1px white;
+}
+
+.north-wall {
+    border-top: 1px white;
+}
+
+.south-wall {
+    border-bottom: 1px white;
+}
+
+.east-wall {
+    border-right: 1px white;
+}
+
+.start {
+    background-color: green;
+}
+
+.goal {
+    background-color: red;
+}
+
