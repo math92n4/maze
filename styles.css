@@ -2,31 +2,33 @@ body {
     background-color: rgb(56, 55, 55);
 }
 
-.maze {
+#maze {
     display: grid;
-    grid-template-columns: repeat(var(--GRID_WITH), max-content);
+    grid-template-columns: repeat(var(--GRID_WIDTH), max-content);
 }
 
 .node {
-    width: 25px;
+    width: 70px;
     background-color: rgb(115, 115, 223);
     aspect-ratio: 1/1;
+    border: 2px solid rgb(56, 55, 55);
+    
 }
 
 .west-wall {
-    border-left: 1px white;
+    border-left: 2px solid white;
 }
 
 .north-wall {
-    border-top: 1px white;
+    border-top: 2px solid white;
 }
 
 .south-wall {
-    border-bottom: 1px white;
+    border-bottom: 2px solid white;
 }
 
 .east-wall {
-    border-right: 1px white;
+    border-right: 2px solid white;
 }
 
 .start {
@@ -35,5 +37,13 @@ body {
 
 .goal {
     background-color: red;
+}
+
+.route {
+    background-color: coral;
+}
+
+.backtrack {
+    background-color: blueviolet;
 }
 
