@@ -4,9 +4,12 @@ let start;
 let maze = []
 let route = []
 let backtrack = []
-document.addEventListener('DOMContentLoaded', startMaze)
+document.getElementById('solve').addEventListener('click', startMaze)
+
 
 function startMaze() {
+    buttonDiv.innerHTML = ""
+    mazeDiv.innerHTML = ""
     fetchMaze(drawMaze)
     .then(() => {
         depthFirstSearch();
@@ -58,7 +61,7 @@ function drawMaze() {
 }
 
 function routeButton() {
-    const buttonDiv = document.getElementById('button-div')
+    
     buttonDiv.innerHTML = ""
     const button = document.createElement('button')
     button.textContent = 'See route/backtrack'
@@ -71,7 +74,7 @@ function routeButton() {
 }
 
 function updateButton() {
-    const buttonDiv = document.getElementById('button-div')
+    
     buttonDiv.innerHTML = ""
     const button = document.createElement('button')
     button.textContent = '<- Go back'
@@ -84,9 +87,6 @@ function updateButton() {
 }
 
 function updateView() {
-    const cells = document.querySelectorAll('.node')
-    console.log(cells)
-
     // route
     for(const cell of route) {
         const cellDiv = document.querySelector(`.node[data-row="${cell.row}"][data-col="${cell.col}"]`)
@@ -155,7 +155,7 @@ function visitCell(row, col) {
 
 
 async function fetchMaze(drawMaze) {
-   const response = await fetch('maze.json')
+   const response = await fetch('/solve-maze/maze.json')
    data = await response.json()
    console.log(data, 'data')
    GRID_WIDTH = data.cols

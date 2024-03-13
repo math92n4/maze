@@ -11,8 +11,12 @@ body {
     width: 70px;
     background-color: rgb(115, 115, 223);
     aspect-ratio: 1/1;
-    border: 2px solid rgb(56, 55, 55);
-    
+    border: 2px solid rgb(56, 55, 55);   
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .west-wall {
