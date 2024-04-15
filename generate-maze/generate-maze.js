@@ -37,24 +37,25 @@ function createMaze() {
     let startCell = getRandomCell();
     
     startCell.visited = true;
-    visited.push(startCell);
+    visited.push(startCell);    
     
 
-    while(visited.length < GRID_HEIGHT * GRID_WIDTH) {
-        const currentCell = getRandomVisitedCell();
+    while(visited.length > 0) {
+        const currentCell = visited.pop();
         const direction = getRandomDirection();
-    
         const nextCell = getNeighbor(currentCell, direction)
-        
-        if(isValidCell(nextCell) && !nextCell.visited) {
+
+        if(nextCell) {
+            visited.push(currentCell)
             setWall(currentCell, nextCell, direction)
             nextCell.visited = true;
-            visited.push(nextCell)
-            console.log(currentCell, 'current')
-            console.log(direction)
-            console.log(nextCell, 'next')
-            console.log(maze)
+            visited.push(nextCell);
         }
+        
+
+        console.log(visited)
+        break;
+        
     }
     
     drawMaze();
@@ -151,9 +152,5 @@ function getNeighbor(cell, direction) {
     return { row: neighbor.row, col: neighbor.col };
 }
 
-
-function isValidCell(cell) {
-    return cell.row >= 0 && cell.row < GRID_HEIGHT && cell.col >= 0 && cell.col < GRID_WIDTH;
-}
 
 
